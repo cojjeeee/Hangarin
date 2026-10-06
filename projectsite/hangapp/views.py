@@ -15,10 +15,30 @@ class HomePageView(ListView):
     template_name = "home.html"
 
     def get_context_data(self, **kwargs):
-
         context = super().get_context_data(**kwargs)
+
         context["total_tasks"] = Task.objects.count()
-        context["total_subtasks"] = SubTask.objects.count()
+
+        context["high_tasks"] = Task.objects.filter(
+            priority__name="High"
+        ).count()
+
+        context["medium_tasks"] = Task.objects.filter(
+            priority__name="Medium"
+        ).count()
+
+        context["low_tasks"] = Task.objects.filter(
+            priority__name="Low"
+        ).count()
+
+        context["critical_tasks"] = Task.objects.filter(
+            priority__name="Critical"
+        ).count()
+
+        context["optional_tasks"] = Task.objects.filter(
+            priority__name="Optional"
+        ).count()
+
         return context
 
 ########################### TASK ###########################
