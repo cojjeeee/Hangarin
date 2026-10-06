@@ -65,8 +65,7 @@ class TaskList(ListView):
         if query:
             qs = qs.filter(
                 Q(title__icontains=query) |
-                Q(description__icontains=query) |
-                Q(deadline=query)
+                Q(description__icontains=query)
             )
         return qs
 
