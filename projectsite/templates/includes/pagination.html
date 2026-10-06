@@ -22,12 +22,12 @@
             {% endif %}
             {% for page_num in paginator.page_range %}
             {%if page_obj.number == page_num %}
-            <li class="page_item active">
+            <li class="page-item active">
                 <span class="page-link">
                     {{ page_num }}
                 </span>
             </li>
-            {% elif page_num > page_obj.number|add:'-3' and page_num < page_obj.number|add: '3' %}
+            {% elif page_num > page_obj.number|add:'-3' and page_num < page_obj.number|add:'3' %}
             <li class="page-item">
                 <a class="page-link" href="?page={{ page_num }}"> {{ page_num }} </a>
             </li>
@@ -46,7 +46,7 @@
             <li class="page-item">
                 <a class="page-link" href="?page={{ paginator.num_pages }}">Last</a>
             </li>
-            {}
+            
             {% else %}
             <li class="page-item disabled">
                 <span class="page-link">Last</span>

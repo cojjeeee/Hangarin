@@ -18,8 +18,27 @@ from django.contrib import admin
 from django.urls import path
 from hangapp import views
 from hangapp.views import HomePageView
+from hangapp.views import TaskList, TaskCreateView, TaskUpdateView, TaskDeleteView
+from hangapp.views import SubTaskList, SubTaskCreateView, SubTaskUpdateView, SubTaskDeleteView
+from hangapp.views import NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePageView.as_view(), name='home'),
+    path('task_list', TaskList.as_view(), name='task-list'),
+    path('task_list/add', TaskCreateView.as_view(), name='task-add'),
+    path('task_list/<pk>', TaskUpdateView.as_view(), name='task-update'),
+    path('task_list/<pk>/delete', TaskDeleteView.as_view(), name='task-delete'),
+
+    path('stask_list', SubTaskList.as_view(), name='stask-list'),
+    path('stask_list/add', SubTaskCreateView.as_view(), name='stask-add'),
+    path('stask_list/<pk>', SubTaskUpdateView.as_view(), name='stask-update'),
+    path('stask_list/<pk>/delete', SubTaskDeleteView.as_view(), name='stask-delete'),
+
+    path('note_list', NoteList.as_view(), name='note-list'),
+    path('note_list/add', NoteCreateView.as_view(), name='note-add'),
+    path('note_list/<pk>', NoteUpdateView.as_view(), name='note-update'),
+    path('note_list/<pk>/delete', NoteDeleteView.as_view(), name='note-delete'),
+
+
 ]
