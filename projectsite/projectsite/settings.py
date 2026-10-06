@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'pwa',
 ]
 
-if "pythonanywhere" in socket.gethostname():
+if "blue-liveconsole13" in socket.gethostname():
     SITE_ID = 4
 else:
     SITE_ID = 3
