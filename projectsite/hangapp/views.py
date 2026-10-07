@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from hangapp.models import Task, SubTask, Note
@@ -9,7 +10,7 @@ from django.utils import timezone
 
 # Create your views here.
 
-class HomePageView(ListView):
+class HomePageView(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'home'
     template_name = "home.html"
